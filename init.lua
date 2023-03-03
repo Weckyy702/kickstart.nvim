@@ -233,6 +233,9 @@ vim.o.termguicolors = true
 -- set relative linenumbers
 vim.o.relativenumber = true
 
+-- Center cursor vertically
+vim.o.scrolloff = 20
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
