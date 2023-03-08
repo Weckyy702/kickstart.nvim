@@ -270,18 +270,14 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-vim.keymap.set('n', '<Leader>F', '<Esc>:Format<cr>')
+vim.keymap.set('n', '<Leader>f', '<Esc>:Format<cr>')
 
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
+-- easier navigation between buffers
+vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
+vim.keymap.set({ 't', 'n' }, '<C-h>', [[<Cmd>wincmd h<CR>]])
+vim.keymap.set({ 't', 'n' }, '<C-j>', [[<Cmd>wincmd j<CR>]])
+vim.keymap.set({ 't', 'n' }, '<C-k>', [[<Cmd>wincmd k<CR>]])
+vim.keymap.set({ 't', 'n' }, '<C-l>', [[<Cmd>wincmd l<CR>]])
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
