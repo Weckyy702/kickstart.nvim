@@ -302,6 +302,12 @@ require('telescope').setup {
   },
 }
 
+require('toggleterm').setup {
+  size = 15,
+  open_mapping = [[<c-t>]],
+}
+
+
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
