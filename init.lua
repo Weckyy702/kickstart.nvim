@@ -170,14 +170,8 @@ require('lazy').setup({
   },
 
   {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = true,
-    },
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
   },
 
   -- "gc" to comment visual regions/lines
@@ -316,6 +310,7 @@ require('toggleterm').setup {
   open_mapping = [[<c-t>]],
 }
 
+require("ibl").setup()
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
