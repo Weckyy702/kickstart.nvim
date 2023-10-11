@@ -208,6 +208,8 @@ require('lazy').setup({
   -- Preview markdown files using glow
   { "ellisonleao/glow.nvim",     config = true, cmd = "Glow" },
 
+  { "mhartington/formatter.nvim" },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -542,6 +544,28 @@ cmp.setup {
   },
 }
 
+-- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
+require("formatter").setup {
+  -- Enable or disable logging
+  logging = true,
+  -- Set the log level
+  log_level = vim.log.levels.WARN,
+  -- All formatter configurations are opt-in
+  filetype = {
+    markdown = {
+      require("formatter.filetypes.markdown")
+    }
+  },
+
+  -- Use the special "*" filetype for defining formatter configurations on
+  -- any filetype
+  ["*"] = {
+    -- "formatter.filetypes.any" defines default configurations for any
+    -- filetype
+    require("formatter.filetypes.any").remove_trailing_whitespace
+  }
+}
+
 
 vim.g["test#strategy"] = "toggleterm";
 
@@ -555,5 +579,9 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   end
 })
 
+vim.cmd('set rtp^="/home/weckyy702/.opam/default/share/ocp-indent/vim"')
+
+vim.g.opamshare = vim.fn.substitute(vim.fn.system('opam var share'), '\n$', '', "''")
+vim.fn.execute("set rtp+=" .. vim.g.opamshare .. "/merlin/vim")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
