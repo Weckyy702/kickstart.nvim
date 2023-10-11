@@ -205,6 +205,9 @@ require('lazy').setup({
     end,
   },
 
+  -- Preview markdown files using glow
+  { "ellisonleao/glow.nvim",     config = true, cmd = "Glow" },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -292,6 +295,11 @@ vim.keymap.set({ 't', 'n' }, '<C-h>', [[<Cmd>wincmd h<CR>]])
 vim.keymap.set({ 't', 'n' }, '<C-j>', [[<Cmd>wincmd j<CR>]])
 vim.keymap.set({ 't', 'n' }, '<C-k>', [[<Cmd>wincmd k<CR>]])
 vim.keymap.set({ 't', 'n' }, '<C-l>', [[<Cmd>wincmd l<CR>]])
+
+-- Shortcut for previewing current file using glow
+vim.keymap.set('n', '<Leader>p', [[<Cmd>Glow<CR>]], {
+  desc = "Preview current buffer using glow"
+})
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
