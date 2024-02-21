@@ -35,6 +35,7 @@ I hope you enjoy your Neovim journey,
 
 P.S. You can delete this when you're done too. It's your config now :)
 --]]
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -579,9 +580,11 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   end
 })
 
-vim.cmd('set rtp^="/home/weckyy702/.opam/default/share/ocp-indent/vim"')
+--[[ vim.cmd('set rtp^="/home/weckyy702/.opam/default/share/ocp-indent/vim"')
 
 vim.g.opamshare = vim.fn.substitute(vim.fn.system('opam var share'), '\n$', '', "''")
 vim.fn.execute("set rtp+=" .. vim.g.opamshare .. "/merlin/vim")
+ ]]
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
