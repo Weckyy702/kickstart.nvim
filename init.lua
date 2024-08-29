@@ -73,9 +73,6 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  -- Lass Max mich ausspionieren
-  'wakatime/vim-wakatime',
-
   -- GLSL support
   'tikhomirov/vim-glsl',
 
